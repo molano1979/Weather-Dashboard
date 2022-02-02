@@ -16,3 +16,6 @@ THEN I am again presented with current and future conditions for that city
 WHEN I open the weather dashboard
 THEN I am presented with the last searched city forecast
 
+Website URL:[Weather-Dashboard](https://molano1979.github.io/Weather-Dashboard/)
+
+![weather](./weather.png)
