@@ -2,9 +2,9 @@ function GetInfo() {
     var newName = document.getElementById("cityInput");
     var cityName = document.getElementById("cityName");
     cityName.innerHTML = "--" + newName.value + "--"
+    // console.log (newName,cityName)
 
-
-    fetch("https://api.openweathermap.org/data/2.5/forecast?q='+newName.value+'&appid=856b01217cf89d90d669f3ee122a823e")
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${newName.value}&appid=856b01217cf89d90d669f3ee122a823e`)
         .then(response => response.json())
         .then(data => {
             for (i = 0; i < 5; i++) {
@@ -28,18 +28,16 @@ function DefaultScreen() {
 }
 
 var d = new Date();
-var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",];
+var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", ];
 
-function CheckDay(day){
-    if(day + d.getDay() > 6){
+function CheckDay(day) {
+    if (day + d.getDay() > 6) {
         return day + d.getDay() - 7;
-    }
-    else{
+    } else {
         return day + d.getDay();
     }
 }
 
-    for(i = 0; i<5; i++){
-        document.getElementById("day" + (i+1)).innerHTML = weekday[CheckDay(i)];
-    }
-
+for (i = 0; i < 5; i++) {
+    document.getElementById("day" + (i + 1)).innerHTML = weekday[CheckDay(i)];
+}
