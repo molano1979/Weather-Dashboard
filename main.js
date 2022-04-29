@@ -4,6 +4,17 @@ function GetInfo() {
     cityName.innerHTML = "--" + newName.value + "--"
     // console.log (newName,cityName)
 
+    // will want to move getItem outside of GetInfo function
+    const historyFromLocalStorage = localStorage.getItem('searchHistory');
+    console.log(historyFromLocalStorage);
+
+    const searchHistory = document.getElementById("searchHistory");
+    const historyElement = document.createElement("div");
+    historyElement.innerHTML = newName.value;
+    searchHistory.appendChild(historyElement);
+
+    localStorage.setItem('searchHistory', newName.value);
+
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${newName.value}&appid=856b01217cf89d90d669f3ee122a823e`)
         .then(response => response.json())
         .then(data => {
